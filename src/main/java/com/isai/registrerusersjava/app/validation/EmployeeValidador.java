@@ -16,11 +16,11 @@ public class EmployeeValidador
 
     @Override
     public void validate(Object target, Errors errors) {
-        Employee employee = (Employee) target;
+        //Employee employee = (Employee) target;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "direction", "NotEmpty.employee.direction");
-        //validamos el patron del nif
-        if (!employee.getNif().matches("[0-9]{8}[A-Z]{1}")) {
-            errors.rejectValue("nif", "Pattern.employee.nif");
-        }
+//        //validamos el patron del nif
+//        if (!employee.getNif().matches("[0-9]{8}[A-Z]{1}")) {
+//            errors.rejectValue("nif", "Pattern.employee.nif");
+//        }
     }
 }
