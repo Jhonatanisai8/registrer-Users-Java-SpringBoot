@@ -22,7 +22,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
 
-    @Pattern(regexp = "[0-9]{8}[A-Z]{1}")//32481596F
+    //@Pattern(regexp = "[0-9]{8}[A-Z]{1}")//32481596F
     private String nif;
 
     @Length(max = 50)
@@ -33,6 +33,9 @@ public class Employee {
     @NotEmpty
     @Size(max = 50)
     private String lastName;
+
+    @Size(max = 50)
+    private String direction;
 
     @Length(max = 100)
     @NotEmpty

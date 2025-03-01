@@ -42,9 +42,20 @@
     <div>
         <label for="email">Correo Electronico: </label>
         <div>
-            <input type="text" name="email" id="email" placeholder="jhon33@gmail.com" th:value="${employee.email}">
+            <input type="text" name="email" id="email" placeholder="jhon33@gmail.com" th:value="${employee.email}"
+                   th:field="*{email}">
         </div>
         <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+
+    <!--    campo direccion-->
+    <div>
+        <label for="direction">Dirección De Casa: </label>
+        <div>
+            <input type="text" name="direction" id="direction" placeholder="Av. 1234 Calle 233"
+                   th:value="${employee.direction}" th:field="*{direction}">
+        </div>
+        <div th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></div>
     </div>
 
     <div>
