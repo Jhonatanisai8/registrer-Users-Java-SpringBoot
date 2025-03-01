@@ -9,12 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 @Controller
+@SessionAttributes("employee")
 public class FormController {
 
     @Autowired
@@ -31,7 +34,8 @@ public class FormController {
     @PostMapping("/form")
     public String procesar(Model model,
                            @Valid Employee employee,
-                           BindingResult results) {
+                           BindingResult results,
+                           SessionStatus status) {
         model.addAttribute("title", "Datos de Empleado");
 
         if (results.hasErrors()) {
@@ -45,6 +49,7 @@ public class FormController {
         }
         employeeServiceImple.save(employee);
         model.addAttribute("employee", employee);
+        status.setComplete();
         return "result";
     }
 }
