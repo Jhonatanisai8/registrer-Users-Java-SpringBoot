@@ -16,25 +16,26 @@
         <div>
             <input type="text" name="firstName" id="firstName" placeholder="Jhon Doe" th:field="*{firstName}">
         </div>
-        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" ></div>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
     </div>
 
     <!--    campo apellidos-->
     <div>
         <label for="lastName">Apellidos: </label>
         <div>
-            <input type="text" name="lastName" id="lastName" placeholder="Lopez Carrasco" th:value="${employee.lastName}">
+            <input type="text" name="lastName" id="lastName" placeholder="Lopez Carrasco"
+                   th:value="${employee.lastName}">
         </div>
-        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" ></div>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
     </div>
 
 
     <div>
         <label for="email">Correo Electronico: </label>
         <div>
-            <input type="email" name="email" id="email" placeholder="jhon33@gmail.com" th:value="${employee.email}" >
+            <input type="text" name="email" id="email" placeholder="jhon33@gmail.com" th:value="${employee.email}">
         </div>
-        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
     </div>
 
     <div>

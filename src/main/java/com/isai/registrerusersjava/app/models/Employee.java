@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -21,14 +22,16 @@ public class Employee {
     private Integer employeeId;
 
     @Length(max = 50)
-    @NotEmpty
+    @NotEmpty(message = "El campo es obligatorio por favor.")
     private String firstName;
 
     @Length(max = 50)
     @NotEmpty
+    @Size(min = 5, max = 50)
     private String lastName;
 
     @Length(max = 100)
     @NotEmpty
+    @Email(message = "Correo con formato invalido")
     private String email;
 }
