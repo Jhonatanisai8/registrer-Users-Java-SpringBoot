@@ -11,7 +11,7 @@ form {
     width: 500px;
     margin: auto;
     padding: 0 10px;
-    border-radius: 15px;
+    border-radius: 30px;
 }
 
 input[type=text] {
@@ -41,5 +41,5 @@ input[type=submit]:hover {
 
 form > div {
     background-color: #f2f2f2;
-    padding: 5px;
+    padding: 5px 20px;
 }
