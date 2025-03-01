@@ -2,6 +2,7 @@ package com.isai.registrerusersjava.app.controllers;
 
 import com.isai.registrerusersjava.app.models.Employee;
 import com.isai.registrerusersjava.app.service.implementation.EmployeeServiceImple;
+import com.isai.registrerusersjava.app.validation.EmployeeValidador;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class FormController {
     @Autowired
     private EmployeeServiceImple employeeServiceImple;
 
+    @Autowired
+    private EmployeeValidador employeeValidador;
+
     @GetMapping("/form")
     public String form(Model model) {
         model.addAttribute("title", "Registro de Empleados");
@@ -37,7 +41,7 @@ public class FormController {
                            BindingResult results,
                            SessionStatus status) {
         model.addAttribute("title", "Datos de Empleado");
-
+        employeeValidador.validate(employee, results);
         if (results.hasErrors()) {
  /*           Map<String, String> errors = new HashMap<>();
             results.getFieldErrors()
