@@ -22,16 +22,16 @@ public class Employee {
     private Integer employeeId;
 
     @Length(max = 50)
-    @NotEmpty(message = "El campo es obligatorio por favor.")
+    @NotEmpty
     private String firstName;
 
     @Length(max = 50)
     @NotEmpty
-    @Size(min = 5, max = 50)
+    @Size(max = 50)
     private String lastName;
 
     @Length(max = 100)
     @NotEmpty
-    @Email(message = "Correo con formato invalido")
+    @Email
     private String email;
 }
