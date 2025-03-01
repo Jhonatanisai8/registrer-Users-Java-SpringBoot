@@ -23,6 +23,8 @@ public class FormController {
     @GetMapping("/form")
     public String form(Model model) {
         model.addAttribute("title", "Registro de Empleados");
+        Employee employee = new Employee();
+        model.addAttribute("employee", employee);
         return "form";
     }
 
