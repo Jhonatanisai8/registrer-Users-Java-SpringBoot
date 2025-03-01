@@ -16,6 +16,9 @@
         <div>
             <input type="text" name="firstName" id="firstName">
         </div>
+        <div th:if="${errors != null && errors.containsKey('firstName')} ">
+            <p th:text="${errors.get('firstName')}"></p>
+        </div>
     </div>
 
     <!--    campo apellidos-->
@@ -24,12 +27,19 @@
         <div>
             <input type="text" name="lastName" id="lastName">
         </div>
+        <div th:if="${errors != null && errors.containsKey('lastName')} ">
+            <p th:text="${errors.get('lastName')}"></p>
+        </div>
     </div>
+
 
     <div>
         <label for="email">Correo Electronico: </label>
         <div>
             <input type="email" name="email" id="email">
+        </div>
+        <div th:if="${errors != null && errors.containsKey('email')} ">
+            <p th:text="${errors.get('email')}"></p>
         </div>
     </div>
 

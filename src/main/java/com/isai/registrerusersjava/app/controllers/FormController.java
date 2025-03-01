@@ -2,12 +2,17 @@ package com.isai.registrerusersjava.app.controllers;
 
 import com.isai.registrerusersjava.app.models.Employee;
 import com.isai.registrerusersjava.app.service.implementation.EmployeeServiceImple;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 @Controller
 public class FormController {
@@ -23,14 +28,19 @@ public class FormController {
 
     @PostMapping("/form")
     public String procesar(Model model,
-                           @RequestParam String firstName,
-                           @RequestParam String lastName,
-                           @RequestParam String email) {
+                           @Valid Employee employee,
+                           BindingResult results) {
         model.addAttribute("title", "Datos de Empleado");
-        Employee employee = new Employee();
-        employee.setFirstName(firstName);
-        employee.setLastName(lastName);
-        employee.setEmail(email);
+
+        if (results.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            results.getFieldErrors()
+                    .forEach(error ->
+                            errors.put(error.getField(),
+                                    error.getDefaultMessage()));
+            model.addAttribute("errors", errors);
+            return "form";
+        }
         employeeServiceImple.save(employee);
         model.addAttribute("employee", employee);
         return "result";
