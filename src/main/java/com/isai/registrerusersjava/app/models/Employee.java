@@ -27,4 +27,8 @@ public class Employee {
     @Length(max = 50)
     @NotEmpty
     private String lastName;
+
+    @Length(max = 100)
+    @NotEmpty
+    private String email;
 }

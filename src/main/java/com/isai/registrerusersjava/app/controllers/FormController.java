@@ -24,11 +24,13 @@ public class FormController {
     @PostMapping("/form")
     public String procesar(Model model,
                            @RequestParam String firstName,
-                           @RequestParam String lastName) {
+                           @RequestParam String lastName,
+                           @RequestParam String email) {
         model.addAttribute("title", "Datos de Empleado");
         Employee employee = new Employee();
         employee.setFirstName(firstName);
         employee.setLastName(lastName);
+        employee.setEmail(email);
         employeeServiceImple.save(employee);
         model.addAttribute("employee", employee);
         return "result";
