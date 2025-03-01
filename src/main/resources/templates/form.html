@@ -59,6 +59,16 @@
         <div th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></div>
     </div>
 
+    <!--    campo numero telefonico-->
+    <div>
+        <label for="phone">Número Telefonico: </label>
+        <div>
+            <input type="text" name="phone" id="phone" placeholder="963258741"
+                   th:value="${employee.phone}" th:field="*{phone}">
+        </div>
+        <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+    </div>
+
     <div>
         <div>
             <input type="submit" value="Enviar">

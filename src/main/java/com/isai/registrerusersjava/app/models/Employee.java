@@ -1,5 +1,6 @@
 package com.isai.registrerusersjava.app.models;
 
+import com.isai.registrerusersjava.app.validation.anotations.PhoneRegex;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,4 +42,8 @@ public class Employee {
     @NotEmpty
     @Email
     private String email;
+
+    @NotEmpty
+    @PhoneRegex
+    private String phone;
 }
