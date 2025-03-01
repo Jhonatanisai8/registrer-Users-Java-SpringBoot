@@ -10,6 +10,15 @@
 </div>
 <form th:action="@{/form}" method="post" th:object="${employee}">
 
+    <!--    campo nif-->
+    <div>
+        <label for="nif">Nif: </label>
+        <div>
+            <input type="text" name="nif" id="nif" placeholder="1234567L" th:field="*{nif}">
+        </div>
+        <div th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"></div>
+    </div>
+
     <!--    campo nombre-->
     <div>
         <label for="firstName">Nombres: </label>
@@ -29,7 +38,7 @@
         <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
     </div>
 
-
+    <!--    campo email-->
     <div>
         <label for="email">Correo Electronico: </label>
         <div>
