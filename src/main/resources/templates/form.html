@@ -8,17 +8,15 @@
 <div>
     <h1 th:text="${title}"></h1>
 </div>
-<form th:action="@{/form}" method="post">
+<form th:action="@{/form}" method="post" th:object="${employee}">
 
     <!--    campo nombre-->
     <div>
         <label for="firstName">Nombres: </label>
         <div>
-            <input type="text" name="firstName" id="firstName" placeholder="Jhon Doe" th:value="${employee.firstName}">
+            <input type="text" name="firstName" id="firstName" placeholder="Jhon Doe" th:field="*{firstName}">
         </div>
-        <div th:if="${errors != null && errors.containsKey('firstName')} ">
-            <p th:text="${errors.get('firstName')}"></p>
-        </div>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" ></div>
     </div>
 
     <!--    campo apellidos-->
@@ -27,9 +25,7 @@
         <div>
             <input type="text" name="lastName" id="lastName" placeholder="Lopez Carrasco" th:value="${employee.lastName}">
         </div>
-        <div th:if=" ${errors !=null && errors.containsKey('lastName')} ">
-            <p th:text="${errors.get('lastName')}"></p>
-        </div>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" ></div>
     </div>
 
 
@@ -38,9 +34,7 @@
         <div>
             <input type="email" name="email" id="email" placeholder="jhon33@gmail.com" th:value="${employee.email}" >
         </div>
-        <div th:if="${errors != null && errors.containsKey('email')} ">
-            <p th:text="${errors.get('email')}"></p>
-        </div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></div>
     </div>
 
     <div>

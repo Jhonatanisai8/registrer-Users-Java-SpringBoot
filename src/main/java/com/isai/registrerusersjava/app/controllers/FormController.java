@@ -35,12 +35,12 @@ public class FormController {
         model.addAttribute("title", "Datos de Empleado");
 
         if (results.hasErrors()) {
-            Map<String, String> errors = new HashMap<>();
+ /*           Map<String, String> errors = new HashMap<>();
             results.getFieldErrors()
                     .forEach(error ->
                             errors.put(error.getField(),
                                     error.getDefaultMessage()));
-            model.addAttribute("errors", errors);
+            model.addAttribute("errors", errors);*/
             return "form";
         }
         employeeServiceImple.save(employee);
