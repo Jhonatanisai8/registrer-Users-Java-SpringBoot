@@ -8,7 +8,7 @@
 <div>
     <h1 th:text="${title}"></h1>
 </div>
-<form th:action="@{/users}" method="post">
+<form th:action="@{/form}" method="post">
 
     <!--    campo nombre-->
     <div>
@@ -26,6 +26,11 @@
         </div>
     </div>
 
+    <div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </div>
 </form>
 </body>
 </html>
