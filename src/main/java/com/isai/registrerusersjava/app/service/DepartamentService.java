@@ -7,5 +7,5 @@ import java.util.List;
 public interface DepartamentService {
     List<Departament> getAllDepartaments();
 
-    Departament getDepartamentById(Long id);
+    Departament getDepartamentById(Integer id);
 }
