@@ -7,11 +7,16 @@ h1 {
     color: #ddd;
 }
 
+label {
+    font-family: "Arial Black";
+}
+
 form {
+    box-sizing: border-box;
     width: 500px;
+    border-radius: 20px;
     margin: auto;
     padding: 0 10px;
-    border-radius: 30px;
 }
 
 input[type=text] {
